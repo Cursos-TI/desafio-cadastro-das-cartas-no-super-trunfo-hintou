@@ -44,7 +44,7 @@ const char* poderInversoFloat(float a, float b){
 void adicionarCartas(){
     // Variáveis =======================
 
-    char estado;
+    char estado[3];
     char cod[100];
     char cidade[100];
     unsigned long int populacao;
@@ -55,7 +55,7 @@ void adicionarCartas(){
     float densidadePopulacional;
     float pibCapita;
 
-    char estado2;
+    char estado2[3];
     char cod2[100];
     char cidade2[100];
     unsigned long int populacao2;
@@ -72,7 +72,7 @@ void adicionarCartas(){
     printf("Cadastro da Primeira Carta =========== \n"); //Primeira Carta
 
     printf("Digite o Estado (A - H): ");
-    scanf(" %c", &estado);
+    scanf("%2s", &estado);
     getchar();
 
     printf("Digite o Codigo (exemplo: S09): ");
@@ -104,7 +104,7 @@ void adicionarCartas(){
     printf("\nCadastro da Segunda Carta =========== \n"); //Segunda Carta
 
     printf("Digite o Estado (A - H): ");
-    scanf(" %c", &estado2);
+    scanf("%2s", &estado2);
     getchar();
 
     printf("Digite o Codigo (exemplo: S09): ");
@@ -146,14 +146,26 @@ void adicionarCartas(){
     printf("\n======================\n\nCarta 01:\nEstado: %c\nCodigo: %s\nNome da Cidade: %s\nPopulacao: %lu\nArea: %.2f Km²\nPIB: %.2f Bilhoes de reais\nNumeros de Pontos Turisticos: %d\nDensidade Populacional: %.2f hab/Km²\nPIB per Capita: %.2f Reais", estado, cod, cidade, populacao, areaKm, pib, numeroPontosTuristicos, densidadePopulacional, pibCapita);
     printf("\n======================\n\nCarta 02:\nEstado: %c\nCodigo: %s\nNome da Cidade: %s\nPopulacao: %lu\nArea: %.2f Km²\nPIB: %.2f Bilhoes de reais\nNumeros de Pontos Turisticos: %d\nDensidade Populacional: %.2f hab/Km²\nPIB per Capita: %.2f Reais", estado2, cod2, cidade2, populacao2, areaKm2, pib2, numeroPontosTuristicos2, densidadePopulacional2, pibCapita2);
 
-    printf("\nComparação de Cartas:\n");
-    printf("População: %s\n", verificarUnsignedLongInt(populacao, populacao2));
-    printf("Área: %s\n", verificarFloat(areaKm, areaKm2));
-    printf("PIB: %s\n", verificarFloat(pib, pib2));
-    printf("Pontos Turísticos: %s\n", verificarInt(numeroPontosTuristicos, numeroPontosTuristicos2));
-    printf("Densidade Populacional: %s\n", poderInversoFloat(densidadePopulacional, densidadePopulacional2));
-    printf("PIB per Capita: %s\n", verificarFloat(pibCapita, pibCapita2));
-    printf("Super Poder: %s\n", verificarFloat(poderCarta1, poderCarta2));
+    //printf("\nComparação de Cartas:\n");
+    //printf("População: %s\n", verificarUnsignedLongInt(populacao, populacao2));
+    //printf("Área: %s\n", verificarFloat(areaKm, areaKm2));
+    //printf("PIB: %s\n", verificarFloat(pib, pib2));
+    //printf("Pontos Turísticos: %s\n", verificarInt(numeroPontosTuristicos, numeroPontosTuristicos2));
+    //printf("Densidade Populacional: %s\n", poderInversoFloat(densidadePopulacional, densidadePopulacional2));
+    //printf("PIB per Capita: %s\n", verificarFloat(pibCapita, pibCapita2));
+    //printf("Super Poder: %s\n", verificarFloat(poderCarta1, poderCarta2));
+
+    printf("Comparação de Cartas (Atributo: População):\n");
+    printf("Carta 1 - %s (%s): %lu\n", cidade, estado, populacao);
+    printf("Carta 2 - %s (%s): %lu\n", cidade2, estado2, populacao2);
+
+    if (populacao > populacao2){
+        printf("Resultado: Carta 1 (%s) venceu!\n", cidade);
+    }else if(populacao < populacao2){
+        printf("Resultado: Carta 2 (%s) venceu!\n", cidade2);
+    }else{
+        printf("Resultado: Empate\n");
+    }
 }
 
 
