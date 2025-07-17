@@ -12,6 +12,9 @@ void adicionarCartas(){
     float pib;
     int numeroPontosTuristicos;
 
+    float densidadePopulacional;
+    float pibCapita;
+
     char estado2;
     char cod2[100];
     char cidade2[100];
@@ -19,6 +22,9 @@ void adicionarCartas(){
     float areaKm2;
     float pib2;
     int numeroPontosTuristicos2;
+
+    float densidadePopulacional2;
+    float pibCapita2;
 
     //Cadastro de Cartas ============================
     //getchar() utilizado para não causar bugs na digitação
@@ -49,11 +55,12 @@ void adicionarCartas(){
     scanf("%f", &pib);
     getchar();
 
+    
     printf("Digite a quantidade de pontos turisticos: ");
     scanf("%d", &numeroPontosTuristicos);
     getchar();
 
-
+    
     printf("\nCadastro da Segunda Carta =========== \n"); //Segunda Carta
 
     printf("Digite o Estado (A - H): ");
@@ -84,13 +91,19 @@ void adicionarCartas(){
     scanf("%d", &numeroPontosTuristicos2);
     getchar();
 
+    densidadePopulacional = populacao / areaKm;
+    densidadePopulacional2 = populacao2 / areaKm2;
+
+    pibCapita = (float)pib / populacao;
+    pibCapita2 = (float)pib2 / populacao2;
 
     //Exibir Dados ==================
 
-    printf("\n======================\n\nCarta 01:\nEstado: %c\nCodigo: %s\nNome da Cidade: %s\nPopulacao: %d\nArea: %.2f Km²\nPIB: %.2f Bilhoes de reais\nNumeros de Pontos Turisticos: %d\n", estado, cod, cidade, populacao, areaKm, pib, numeroPontosTuristicos);
-    printf("\n======================\n\nCarta 02:\nEstado: %c\nCodigo: %s\nNome da Cidade: %s\nPopulacao: %d\nArea: %.2f Km²\nPIB: %.2f Bilhoes de reais\nNumeros de Pontos Turisticos: %d\n", estado2, cod2, cidade2, populacao2, areaKm2, pib2, numeroPontosTuristicos2);
+    printf("\n======================\n\nCarta 01:\nEstado: %c\nCodigo: %s\nNome da Cidade: %s\nPopulacao: %d\nArea: %.2f Km²\nPIB: %.2f Bilhoes de reais\nNumeros de Pontos Turisticos: %d\nDensidade Populacional: %.2f hab/Km²\nPIB per Capita: %.2f Reais", estado, cod, cidade, populacao, areaKm, pib, numeroPontosTuristicos, densidadePopulacional, pibCapita);
+    printf("\n======================\n\nCarta 02:\nEstado: %c\nCodigo: %s\nNome da Cidade: %s\nPopulacao: %d\nArea: %.2f Km²\nPIB: %.2f Bilhoes de reais\nNumeros de Pontos Turisticos: %d\nDensidade Populacional: %.2f hab/Km²\nPIB per Capita: %.2f Reais", estado2, cod2, cidade2, populacao2, areaKm2, pib2, numeroPontosTuristicos2, densidadePopulacional2, pibCapita2);
 
 }
+
 
 int main(){
     adicionarCartas();
